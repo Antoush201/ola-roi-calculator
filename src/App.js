@@ -306,7 +306,6 @@ export default function App() {
             border: "1.5px solid #E8E8E8",
             opacity: animated ? 1 : 0, transition: "opacity 0.7s ease 0.7s"
           }}>
-            <img src={LOGO} alt="OLA" style={{ height: 32, marginBottom: 20, opacity: 0.8 }} />
             <div style={{ fontSize: 26, fontWeight: 800, color: "#111", marginBottom: 8, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
               On t'a montré le problème.<br />
               <span style={{ color: "#888" }}>On peut te montrer la solution.</span>
