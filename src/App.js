@@ -170,7 +170,7 @@ export default function App() {
 
       {/* Header */}
       <div style={{ textAlign: "center", marginBottom: 40 }}>
-        <img src={LOGO} alt="OLA" style={{ height: 48, marginBottom: 20 }} />
+        <div style={{ fontSize: 32, fontWeight: 900, letterSpacing: "-0.03em", color: "#111", marginBottom: 20 }}>OLA</div>
         <h1 style={{ fontSize: 30, fontWeight: 800, color: "#111", margin: "0 0 8px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>
           Combien te coûte ton temps perdu?
         </h1>
