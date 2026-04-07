@@ -8,7 +8,7 @@ const ANNUAL_OLA = MONTHLY_OLA * 12;
 const AUTOMATION_RATE = 0.50;
 const LEAD_LOSS_RATE = 0.25;
 const BOOKING_URL = "https://api.ola-ai.ca/widget/bookings/olapresentation";
-const LOGO = "https://static.wixstatic.com/media/0f65e1_4917de35ad474838802fbe15ed7f8e76~mv2.png";
+const LOGO = "/logo.png";
 
 const testimonials = [
   { quote: "Depuis qu'on utilise OLA, on a récupéré au moins 10 heures par semaine. J'ai enfin du temps pour mes enfants le soir.", author: "Courtier RE/MAX", location: "Montréal" },
