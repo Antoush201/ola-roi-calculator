@@ -8,7 +8,7 @@ const ANNUAL_OLA = MONTHLY_OLA * 12;
 const AUTOMATION_RATE = 0.50;
 const LEAD_LOSS_RATE = 0.25;
 const BOOKING_URL = "https://api.ola-ai.ca/widget/bookings/olapresentation";
-const LOGO = "/logo.png";
+const LOGO = "https://static.wixstatic.com/media/0f65e1_4917de35ad474838802fbe15ed7f8e76~mv2.png";
 
 const testimonials = [
   { quote: "Depuis qu'on utilise OLA, on a récupéré au moins 10 heures par semaine. J'ai enfin du temps pour mes enfants le soir.", author: "Courtier RE/MAX", location: "Montréal" },
@@ -53,6 +53,49 @@ function TestimonialSlider() {
             transition: "all 0.3s ease", padding: 0
           }} />
         ))}
+      </div>
+    </div>
+  );
+}
+
+function PushPull({ wh, animated }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{
+      maxWidth: 720, margin: "0 auto 40px",
+      background: "#FAFAFA", borderRadius: 16, border: "1.5px solid #ECECEC",
+      opacity: animated ? 1 : 0, transition: "opacity 0.7s ease 0.6s", overflow: "hidden"
+    }}>
+      <button onClick={() => setOpen(!open)} style={{
+        width: "100%", padding: "24px 28px", background: "none", border: "none", cursor: "pointer",
+        display: "flex", justifyContent: "space-between", alignItems: "center", textAlign: "left"
+      }}>
+        <div style={{ fontSize: 20, fontWeight: 800, color: "#111", lineHeight: 1.3, letterSpacing: "-0.01em" }}>
+          {wh} heures de récupérées par semaine.<br />
+          <span style={{ color: "#888" }}>La question, c'est : tu en fais quoi?</span>
+        </div>
+        <div style={{
+          fontSize: 24, color: "#888", transition: "transform 0.3s ease",
+          transform: open ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0, marginLeft: 16
+        }}>▼</div>
+      </button>
+      <div style={{
+        maxHeight: open ? 500 : 0, opacity: open ? 1 : 0,
+        transition: "max-height 0.4s ease, opacity 0.3s ease",
+        overflow: "hidden", padding: open ? "0 28px 28px" : "0 28px"
+      }}>
+        <div style={{ fontSize: 15, color: "#555", lineHeight: 1.7, marginBottom: 16 }}>
+          Peut-être que tu veux finir tes journées plus tôt, être plus présent avec ta famille, retrouver tes weekends. C'est un objectif qui est plus que valide — et OLA peut te donner ça.
+        </div>
+        <div style={{ fontSize: 15, color: "#555", lineHeight: 1.7, marginBottom: 16 }}>
+          Peut-être que tu veux réinvestir ce temps-là pour closer plus de transactions et augmenter tes revenus. Ça aussi, c'est possible — mais pas juste en sauvant du temps. C'est en ayant <strong>le bon système derrière</strong> : les bons suivis, au bon moment, avec le bon message. Un système qui fait le travail invisible pendant que toi, tu te concentres sur ce que tu fais de mieux.
+        </div>
+        <div style={{ fontSize: 15, color: "#555", lineHeight: 1.7, marginBottom: 16 }}>
+          Que ton objectif soit plus de liberté, plus de revenus, ou les deux — le résultat dépend du système que tu mets en place.
+        </div>
+        <div style={{ fontSize: 15, color: "#111", lineHeight: 1.7, fontWeight: 600 }}>
+          C'est pour ça qu'on bâtit chaque setup sur mesure. Parce que ton business est pas pareil comme celui du voisin — et ton système devrait pas l'être non plus.
+        </div>
       </div>
     </div>
   );
@@ -252,29 +295,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* Push-Pull */}
-          <div style={{
-            maxWidth: 720, margin: "0 auto 40px", padding: "32px 28px",
-            background: "#FAFAFA", borderRadius: 16, border: "1.5px solid #ECECEC",
-            opacity: animated ? 1 : 0, transition: "opacity 0.7s ease 0.6s"
-          }}>
-            <div style={{ fontSize: 20, fontWeight: 800, color: "#111", marginBottom: 16, lineHeight: 1.3, letterSpacing: "-0.01em" }}>
-              {wh} heures de récupérées par semaine.<br />
-              <span style={{ color: "#888" }}>La question, c'est : tu en fais quoi?</span>
-            </div>
-            <div style={{ fontSize: 15, color: "#555", lineHeight: 1.7, marginBottom: 16 }}>
-              Peut-être que tu veux finir tes journées plus tôt, être plus présent avec ta famille, retrouver tes weekends. C'est un objectif qui est plus que valide — et OLA peut te donner ça.
-            </div>
-            <div style={{ fontSize: 15, color: "#555", lineHeight: 1.7, marginBottom: 16 }}>
-              Peut-être que tu veux réinvestir ce temps-là pour closer plus de transactions et augmenter tes revenus. Ça aussi, c'est possible — mais pas juste en sauvant du temps. C'est en ayant <strong>le bon système derrière</strong> : les bons suivis, au bon moment, avec le bon message. Un système qui fait le travail invisible pendant que toi, tu te concentres sur ce que tu fais de mieux.
-            </div>
-            <div style={{ fontSize: 15, color: "#555", lineHeight: 1.7, marginBottom: 16 }}>
-              Que ton objectif soit plus de liberté, plus de revenus, ou les deux — le résultat dépend du système que tu mets en place.
-            </div>
-            <div style={{ fontSize: 15, color: "#111", lineHeight: 1.7, fontWeight: 600 }}>
-              C'est pour ça qu'on bâtit chaque setup sur mesure. Parce que ton business est pas pareil comme celui du voisin — et ton système devrait pas l'être non plus.
-            </div>
-          </div>
+          {/* Push-Pull Dropdown */}
+          <PushPull wh={wh} animated={animated} />
 
           {/* CTA */}
           <div style={{
